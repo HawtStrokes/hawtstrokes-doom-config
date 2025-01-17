@@ -59,3 +59,4 @@
 (package! drag-stuff)   ; A better way to transpose text consecutively
 (package! clips-mode)   ; Major mode for CLIPS
 (package! ellama)
+(package! vterm)
