@@ -60,3 +60,4 @@
 (package! clips-mode)   ; Major mode for CLIPS
 (package! ellama)
 (package! vterm)
+(package! csv-mode)
