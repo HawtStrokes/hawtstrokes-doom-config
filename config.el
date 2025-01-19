@@ -110,3 +110,17 @@
   :config
   (setq ellama-sessions-directory "~/.config/emacs/ellama-sessions/"
         ellama-sessions-auto-save t))
+
+(setq interprogram-cut-function
+      (lambda (text &optional _)
+        (let ((process-connection-type nil))
+          (let ((proc (start-process "clip" "*Messages*" "clip.exe")))
+            (process-send-string proc text)
+            (process-send-eof proc)))))
+
+(setq interprogram-paste-function
+      (lambda ()
+        (with-output-to-string
+          (with-current-buffer standard-output
+            (call-process "powershell.exe" nil t nil "-command" "Get-Clipboard")))))
+

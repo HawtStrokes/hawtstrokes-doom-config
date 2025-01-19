@@ -61,3 +61,4 @@
 (package! ellama)
 (package! vterm)
 (package! csv-mode)
+(package! typescript-mode)
