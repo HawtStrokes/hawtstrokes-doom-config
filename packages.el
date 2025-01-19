@@ -58,7 +58,9 @@
 
 (package! drag-stuff)   ; A better way to transpose text consecutively
 (package! clips-mode)   ; Major mode for CLIPS
-(package! ellama)
-(package! vterm)
-(package! csv-mode)
-(package! typescript-mode)
+(package! ellama)	; intergrate locally run transformers ai using Ollamaa to run on Emacs
+(package! vterm)	; A better terminal, eshell can rot in the dumpster
+(package! csv-mode)	; csv-mode
+(package! copilot
+  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
+

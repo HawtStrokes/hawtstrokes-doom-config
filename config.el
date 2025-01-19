@@ -75,28 +75,24 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Perspective for workspaces
 (after! perspective
   (setq persp-mode-prefix-key (kbd "C-c p"))
   (persp-mode))
 
-
-;; ;; In config.el
-;; (after! drag-stuff
-;;   (drag-stuff-global-mode 1)
-;;   (map! :n "M-<up>"
-;;         :n "M-<down>"))
-
+;; Transposition package configuration
 (use-package! drag-stuff
   :ensure t
   :config
   (drag-stuff-global-mode 1))
 
+;; Transposition keybinds
 (map! :n "M-<up>"#'drag-stuff-up)
 (map! :n "M-<down>"#'drag-stuff-down)
-
 (map! :v "M-<up>"#'drag-stuff-up)
 (map! :v "M-<down>"#'drag-stuff-down)
 
+;; Ellama
 (use-package ellama
   :init
   (setopt ellama-keymap-prefix "C-c e")  ;; Keymap for all Ellama functions
@@ -111,6 +107,12 @@
   (setq ellama-sessions-directory "~/.config/emacs/ellama-sessions/"
         ellama-sessions-auto-save t))
 
+;; Copilot setup for code suggestions
+(use-package copilot
+  :ensure t
+  :hook (prog-mode . copilot-mode))  ; Enable Copilot in all programming modes
+
+;; Bridge WSL and Windows host clipboards
 (setq interprogram-cut-function
       (lambda (text &optional _)
         (let ((process-connection-type nil))
