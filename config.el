@@ -111,6 +111,11 @@
 (use-package copilot
   :ensure t
   :hook (prog-mode . copilot-mode))  ; Enable Copilot in all programming modes
+ 
+(map! :after copilot
+      :desc "Accept Copilot completion by line"
+      "C-c c" #'copilot-accept-completion-by-line)
+
 
 ;; Bridge WSL and Windows host clipboards
 (setq interprogram-cut-function
